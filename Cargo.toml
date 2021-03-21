@@ -1,0 +1,10 @@
+[package]
+name = "learn-tch-rs"
+version = "0.1.0"
+authors = ["taku-y <taku.yoshioka.4096@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tch = "0.3.0"
