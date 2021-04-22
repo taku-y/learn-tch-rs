@@ -8,23 +8,19 @@ fn main() {
     println!("=== x.unsqueeze(-1).unsqueeze(-1).size() ===");
     let y = x.unsqueeze(-1).unsqueeze(-1);
     println!("{:?}", y.size());
+    println!("=== x.unsqueeze(0).size() ===");
+    let z = x.unsqueeze(0);
+    println!("{:?}", z.size());
 
-    //     === x ===
-    //     3
-    //     1
-    //     4
-    //     5
-    //    [ CPUIntType{4} ]
-    //    === y ===
-    //     6  3
-    //     9  1
-    //     2  9
-    //     7  3
-    //    [ CPUIntType{4,2} ]
-    //    === x.unsqueeze(-1) - y ===
-    //    -3  0
-    //    -8  0
-    //     2 -5
-    //    -2  2
-    //    [ CPUIntType{4,2} ]
+    // === x, x.size() ===
+    //  3
+    //  1
+    //  4
+    //  5
+    // [ CPUIntType{4} ]
+    // [4]
+    // === x.unsqueeze(-1).unsqueeze(-1).size() ===
+    // [4, 1, 1]
+    // === x.unsqueeze(0).size() ===
+    // [1, 4]
 }
