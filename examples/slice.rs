@@ -1,4 +1,4 @@
-use tch::Tensor;
+use tch::{Tensor, IndexOp};
 
 fn main() {
     println!("=== x ===");
@@ -20,6 +20,9 @@ fn main() {
     println!("=== z.unsqueeze(0).flat_view().squeeze1(0).copy_(&y.slice(0, 3, 7, 1))");
     z.unsqueeze(0).flat_view().squeeze1(0).copy_(&y.slice(0, 3, 7, 1));
     z.print();
+
+    println!("=== x.reshape(&[2, 4]).i((.., 2))");
+    x.reshape(&[2, 4]).i((.., 2)).print();
 
     //     === x ===
     //     1
