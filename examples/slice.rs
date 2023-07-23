@@ -21,8 +21,17 @@ fn main() {
     z.unsqueeze(0).flat_view().squeeze1(0).copy_(&y.slice(0, 3, 7, 1));
     z.print();
 
+    println!("=== x.reshape(&[2, 4])");
+    x.reshape(&[2, 4]).print();
+
     println!("=== x.reshape(&[2, 4]).i((.., 2))");
     x.reshape(&[2, 4]).i((.., 2)).print();
+
+    println!("=== x.reshape(&[2, 2, 2])");
+    x.reshape(&[2, 2, 2]).print();
+
+    println!("=== x.reshape(&[2, 2, 2]).i((.., 0, ..))");
+    x.reshape(&[2, 2, 2]).i((.., 0, ..)).print();
 
     //     === x ===
     //     1
@@ -62,4 +71,25 @@ fn main() {
     //    -4 -5
     //    -6 -7
     //    [ CPUIntType{2,2} ]
+    //    === x.reshape(&[2, 4])
+    //    1  2  3 -4
+    //   -5 -6  7  8
+    //   [ CPUIntType{2,4} ]
+    //   === x.reshape(&[2, 4]).i((.., 2))
+    //    3
+    //    7
+    //   [ CPUIntType{2} ]
+    //   === x.reshape(&[2, 2, 2])
+    //   (1,.,.) = 
+    //    1  2
+    //    3 -4
+    //
+    //   (2,.,.) = 
+    //   -5 -6
+    //    7  8
+    //   [ CPUIntType{2,2,2} ]
+    //   === x.reshape(&[2, 2, 2]).i((.., 0, ..))
+    //    1  2
+    //   -5 -6
+    //[ CPUIntType{2,2} ]
 }
